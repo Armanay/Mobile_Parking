@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_parking"
+            android:title="Парковка"
+            android:icon="@drawable/ic_action_parking"
+            />
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Профиль"
+            android:icon="@drawable/ic_action_logout"
+            />
+        <item
+            android:id="@+id/nav_home"
+            android:title="Детали парковки"
+            android:icon="@drawable/ic_action_home"
+            />
+        <item
+            android:id="@+id/nav_add_car"
+            android:title="Добавить машину"
+            android:icon="@drawable/ic_action_car"
+            />
+
+
+
+    </group>
+    <item android:title="Свяжитесь с нами">
+        <menu>
+            <item
+                android:id="@+id/nav_policy"
+                android:title="Политика конфиденциальности"
+                android:icon="@drawable/ic_action_policy"
+                />
+            <item
+                android:id="@+id/nav_contac_us"
+                android:title="Свяжитесь с нами"
+                android:icon="@drawable/ic_action_contact_us"
+                />
+
+        </menu>
+    </item>
+
+
+    <item android:title="Выход">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:title="Выход"
+                android:icon="@drawable/ic_action_logout"
+                />
+        </menu>
+    </item>
+
+</menu>

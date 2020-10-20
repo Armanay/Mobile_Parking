@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ContactFragment"
+    android:padding="20dp">
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:lineHeight="40sp"
+            android:text="@string/problem_desc"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/support_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_action_contact_us_problem"
+                android:drawablePadding="10dp"
+                android:hint="@string/problem" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            >
+            <Button
+                android:id="@+id/send_error"
+                android:paddingLeft="@dimen/margin_50dp"
+                android:paddingRight="@dimen/margin_50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/send"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_bg"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:lineHeight="40sp"
+            android:text="@string/contact_us_text"
+
+          />
+
+        <LinearLayout
+            android:id="@+id/phone_call"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/margin_50dp"
+                android:layout_height="@dimen/margin_50dp"
+                android:src="@drawable/ic_action_phone"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/phone_call_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/colorButtonBg"
+                android:text="@string/contact_phone"/>
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/margin_50dp"
+                android:layout_height="@dimen/margin_50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_action_email"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/colorRed"
+                android:text="@string/email_contact"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

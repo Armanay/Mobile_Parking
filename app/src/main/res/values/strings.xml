@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">OnlineParking</string>
+    <string name="sign_in_label">Логин</string>
+    <string name="enter_username">Введите имя пользователя</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="link_sign_up">Нет аккаунта? Регистрация</string>
+    <string name="sign_up_label">Регистрация</string>
+    <string name="enter_name">Введите имя пользователя</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="title">Title</string>
+    <string name="edit_btn">Edit</string>
+
+    <string name="save_btn">Сохранить</string>
+    <string name="logout_action_bar">Выход</string>
+    <string name="sign_in_title">Логин</string>
+    <string name="empty_field_error">Заполните поле</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="menu_home">Главная</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="car_nomer">Введите номер машины</string>
+    <string name="car_name">Введите имя машины(пр: моя машина)</string>
+    <string name="title_activity_park">ParkActivity</string>
+    <string name="enter_email">Электронная почта</string>
+    <string name="enter_phone_number">Введите номер телефона</string>
+    <string name="title_activity_parking">ParkingActivity</string>
+    <string name="open">открыть</string>
+    <string name="close">закрыть</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="choose_parking">Выберите парковку:</string>
+    <string name="choose_parking_space">Выберите парковчное место:</string>
+    <string name="choose_car">Выберите машину:</string>
+    <string name="your_cars">Ваши машины</string>
+    <string name="policy_card">Ваша карта будет безопасности и никто кроме вас не будет иметь доступ к вашей карте</string>
+    <string name="policy_park">Информация о ваших парковках и о забронированных местах будет скрыта от других лиц</string>
+    <string name="policy_car">Информация о ваших машинах будет доступна только вам</string>
+    <string name="problem_desc">Опишите вашу проблему</string>
+    <string name="problem">сообщиет о проблеме ...</string>
+    <string name="contact_us_text">Свяжитесь с нами</string>
+    <string name="contact_phone">87474791282</string>
+    <string name="email_contact">onlineParking@gmail.com</string>
+    <string name="send">Отправить</string>
+    <string name="policy_desc">Подробнее о политике конфиденциальности</string>
+    <string name="take_btn_label">Забронировать</string>
+    <string name="qr_code_label">Отсканируйте Qr код при вьезде на парковку</string>
+    <string name="take_time">Время бронирования</string>
+    <string name="parking_name_label">Не выбрано</string>
+    <string name="space_no">Не выбрано</string>
+    <string name="selected_car">Не выбрано</string>
+    <string name="cancel_btn_label">Отменить</string>
+    <string name="code">Введите код потверждения</string>
+    <string name="verify">Подтвердить</string>
+    <string name="get_sms_code">Получить смс код</string>
+    <string name="enter_phone_number_and_verify_it">Введите номер телефона и подтвердите по смс коду</string>
+    <string name="label_update_pswd">Изменить пароль</string>
+    <string name="my_car_label">Мои машины</string>
+    <string name="may_card_label">Мои банковские карты</string>
+    <string name="exit_btn">Выход</string>
+    <string name="old_pswd_label">Текущий пароль</string>
+    <string name="new_pswd_label">Новый пароль</string>
+    <string name="cofirm_new_pswd">Подвердите новый пароль</string>
+    <string name="add_card">Добавить банковскую карту</string>
+    <string name="add_pay_card">Добавьте платежную карту</string>
+</resources>
