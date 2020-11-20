@@ -32,8 +32,8 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
         (this as AppCompatActivity).supportActionBar?.title = "Регистрация"
-        val phoneNo:String = intent.getStringExtra(PHONE)
-        signUp(phoneNo)
+        val phoneNo = intent.getStringExtra(PHONE)
+        phoneNo?.let { signUp(it) }
     }
 
     private fun signUp(phoneNo: String){

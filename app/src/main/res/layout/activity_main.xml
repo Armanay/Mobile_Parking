@@ -32,6 +32,8 @@
                 android:id="@+id/login_email"
                 android:layout_width="match_parent"
                 android:drawablePadding="10dp"
+                android:inputType="phone"
+
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_phone_number" />
 

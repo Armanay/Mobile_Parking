@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "31176282105",
-    "firebase_url": "https://parkingsystem-96a61.firebaseio.com",
-    "project_id": "parkingsystem-96a61",
-    "storage_bucket": "parkingsystem-96a61.appspot.com"
+    "project_number": "114880889602",
+    "firebase_url": "https://onlineparking-329ea.firebaseio.com",
+    "project_id": "onlineparking-329ea",
+    "storage_bucket": "onlineparking-329ea.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:31176282105:android:fd0ddaa650c3977c133728",
+        "mobilesdk_app_id": "1:114880889602:android:ccff81f5584ba104cdb81b",
         "android_client_info": {
           "package_name": "com.example.parkingsystem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "31176282105-mhapndk7sm2unuru3si0j6l8kuao1b06.apps.googleusercontent.com",
+          "client_id": "114880889602-ql64vpkiu7e4ohdr34co7maqtdcp1drj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parkingsystem",
+            "certificate_hash": "bf5ffc70dbdfe3cbc086a716fac52f074e6e1e12"
+          }
+        },
+        {
+          "client_id": "114880889602-632bet14d0da87bu88o1uvu7v8j1ehvr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDQ6QIe1ED9jTsKEAWdBvkdUpNWIIcMK3w"
+          "current_key": "AIzaSyCG0p37F8NFLIaDVs6y0OAo9gKW-xEBWKk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "31176282105-mhapndk7sm2unuru3si0j6l8kuao1b06.apps.googleusercontent.com",
+              "client_id": "114880889602-632bet14d0da87bu88o1uvu7v8j1ehvr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

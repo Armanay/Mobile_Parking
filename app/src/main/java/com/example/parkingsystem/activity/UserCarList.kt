@@ -23,16 +23,28 @@ class UserCarList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_car_list)
-        (this as AppCompatActivity).supportActionBar?.title = "Машины пользователя"
+        toolbarSettings()
         initCarList(auth.currentUser!!.uid)
     }
+
+    private fun toolbarSettings(){
+        supportActionBar!!.title = "Машины пользователя"
+        supportActionBar!!.setDisplayShowHomeEnabled(true);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     private fun initCarList( uid:String){
         own_car_list.layoutManager = LinearLayoutManager(this)
         db.collection(FirebaseConst.USER_COLLECTION)
             .document(uid)
             .addSnapshotListener { snapshot, e ->
                 if (e != null){
-                    Log.d("tagtagtag", e.message)
+                    Log.d("tagtagtag", e.message.toString())
                     return@addSnapshotListener
                 }
                 val user = snapshot?.toObject(User::class.java)

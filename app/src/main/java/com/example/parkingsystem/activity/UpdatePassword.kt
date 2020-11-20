@@ -20,9 +20,21 @@ class UpdatePassword : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_password)
 
-        (this as AppCompatActivity).supportActionBar?.title = "Изменение пароля"
+        toolbarSettings()
         getOldPassword(auth.currentUser!!.uid, old_pswd.text.toString())
     }
+
+    private fun toolbarSettings(){
+        supportActionBar!!.title = "Изменение пароля"
+        supportActionBar!!.setDisplayShowHomeEnabled(true);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 
     private fun getOldPassword(uid:String, oldP: String){
         db.collection(FirebaseConst.USER_COLLECTION)

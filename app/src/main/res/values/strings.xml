@@ -68,4 +68,11 @@
     <string name="cofirm_new_pswd">Подвердите новый пароль</string>
     <string name="add_card">Добавить банковскую карту</string>
     <string name="add_pay_card">Добавьте платежную карту</string>
+    <string name="parking_label">Парковка</string>
+    <string name="profile_label">Профиль</string>
+    <string name="parking_detail_label">Детали парковки</string>
+    <string name="add_car_label">Добавить машину</string>
+    <string name="contact_with_us">Свяжитесь с нами</string>
+    <string name="privacy_policy_label">Политика конфиденциальности</string>
+    <string name="Sign_out">Выход</string>
 </resources>

@@ -9,6 +9,17 @@ class BankCardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bank_card)
-        (this as AppCompatActivity).supportActionBar?.title = "Банковские карты"
+        toolbarSettings()
+    }
+
+    private fun toolbarSettings(){
+        supportActionBar!!.title = "Банковские карты"
+        supportActionBar!!.setDisplayShowHomeEnabled(true);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

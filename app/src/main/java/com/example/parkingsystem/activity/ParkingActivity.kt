@@ -1,34 +1,26 @@
 package com.example.parkingsystem.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import com.example.parkingsystem.FirebaseConst
 import com.example.parkingsystem.R
-import com.example.parkingsystem.adapter.CarAdapter
-import com.example.parkingsystem.entity.Car
 import com.example.parkingsystem.entity.Parking
 import com.example.parkingsystem.entity.ParkingSpace
 import com.example.parkingsystem.entity.User
 import com.example.parkingsystem.fragments.*
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_parking2.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.fragment_add_car.*
-import kotlinx.android.synthetic.main.fragment_add_car.view.*
-import kotlinx.android.synthetic.main.fragment_profile.view.*
-import kotlinx.android.synthetic.main.header.*
+
 
 class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -45,7 +37,8 @@ class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking2)
-//
+
+
 //        addParkings("ADK", 60, "Сатпаева, 90")
 //        addParkings("Globus", 10, "Абая проспект, 109в")
 //        addParkings("Mega", 100, "Розыбакиева, 247а")
