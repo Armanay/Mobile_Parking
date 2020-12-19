@@ -8,15 +8,6 @@
         <item name="colorAccent">#FFFFC107</item>
     </style>
 
-    <style name="activity_label">
-        <item name="android:textSize">25sp</item>
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
-    <style name="btn_text">
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -37,5 +28,9 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="item_text_style" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 </resources>

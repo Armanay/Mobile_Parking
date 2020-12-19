@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/_5sdp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="@dimen/_10sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/parking_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/item_text_style"
+            android:text="@string/adk"/>
+
+        <TextView
+            android:id="@+id/parking_address_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colordarkGrey"
+            android:text="@string/satpaeva"/>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

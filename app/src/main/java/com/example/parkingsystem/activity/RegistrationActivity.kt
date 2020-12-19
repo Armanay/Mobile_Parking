@@ -30,6 +30,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth.signOut()
         setContentView(R.layout.activity_registration)
         (this as AppCompatActivity).supportActionBar?.title = "Регистрация"
         val phoneNo = intent.getStringExtra(PHONE)
@@ -37,7 +38,6 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun signUp(phoneNo: String){
-
         sign_up_btn.setOnClickListener {
             if (reg_username.text!!.isEmpty() || reg_password.text!!.isEmpty() || reg_password_again.text!!.isEmpty()) {
                 if (reg_username.text!!.isEmpty()) {
@@ -51,20 +51,41 @@ class RegistrationActivity : AppCompatActivity() {
                 }
             } else {
                 if (reg_password.text.toString() == reg_password_again.text.toString()) {
-                    val parkingSpace = ParkingSpace( "Не выбран", true, "Не выбран", 0,"Не выбран","Не выбран" )
-                    val car = Car( "Не выбран", "Не выбран", "Не выбран", "Не выбран" )
+                    auth.createUserWithEmailAndPassword("${phoneNo}@mail.ru", reg_password.text.toString())
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                Log.d("tagtagtag", "signInWithEmail:success")
 
-                    val user = User(
-                        auth.currentUser!!.uid,
-                        reg_username.text.toString(),
-                        phoneNo,
-                        reg_password.text.toString(),
-                        ArrayList(),
-                        parkingSpace,
-                        Car()
-                    )
-                    successReg()
-                    saveUserData(user.uid, user)
+                                val parkingSpace = ParkingSpace(
+                                    "Не выбран",
+                                    true,
+                                    "Не выбран",
+                                    0,
+                                    "Не выбран",
+                                    "Не выбран"
+                                )
+                                val car = Car("Не выбран", "Не выбран", "Не выбран", "Не выбран")
+
+                                val user = User(
+                                    auth.currentUser!!.uid,
+                                    reg_username.text.toString(),
+                                    phoneNo,
+                                    reg_password.text.toString(),
+                                    ArrayList(),
+                                    parkingSpace,
+                                    Car()
+                                )
+                                successReg()
+                                saveUserData(user.uid, user)
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w("tagtagtag", "signInWithEmail:failure", task.exception)
+                                Toast.makeText(
+                                    baseContext, "Authentication failed.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                 }
             else {
                     Toast.makeText(this, "Passwords do not match!!!", Toast.LENGTH_LONG).show()

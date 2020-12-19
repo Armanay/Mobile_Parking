@@ -1,9 +1,13 @@
 package com.example.parkingsystem.activity
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,17 +19,27 @@ import com.example.parkingsystem.entity.Parking
 import com.example.parkingsystem.entity.ParkingSpace
 import com.example.parkingsystem.entity.User
 import com.example.parkingsystem.fragments.*
+import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.Task
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_parking2.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-
+import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.header.view.*
+import java.io.IOException
+import java.util.*
 
 class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val auth by lazy { FirebaseAuth.getInstance() }
     private val db by lazy { FirebaseFirestore.getInstance() }
+
+
 
     lateinit var homeFragment: HomeFragment
     lateinit var addCarFragment: AddCarFragment
@@ -34,19 +48,21 @@ class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     lateinit var policyFragment: PolicyFragment
     lateinit var contactFragment: ContactFragment
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking2)
-
-
+//
 //        addParkings("ADK", 60, "Сатпаева, 90")
 //        addParkings("Globus", 10, "Абая проспект, 109в")
 //        addParkings("Mega", 100, "Розыбакиева, 247а")
 //        addParkings("Moskva", 40, "8-й микрорайон, 37/1")
 //        addParkings("Sputnik", 30, "Мамыр 1-й микрорайон, 8а")
-        welcome()
+//        welcome()
         supportActionBar()
-        userInfo(auth.currentUser!!.uid)
+        if (auth.currentUser != null){
+            userInfo(auth.currentUser!!.uid)
+        }
     }
 
 
@@ -86,7 +102,10 @@ class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
+
+
     override fun onNavigationItemSelected(menu: MenuItem): Boolean {
+
         when(menu.itemId){
             R.id.nav_home ->{
                 homeFragment = HomeFragment()
@@ -152,21 +171,22 @@ class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun userInfo(uid :String){
-//        db.collection(FirebaseConst.USER_COLLECTION)
-//            .document(uid)
-//            .addSnapshotListener { snapshot, e ->
-//                if (e != null) {
-//                    Log.d("tagtagtag", e.localizedMessage)
-//                    return@addSnapshotListener
-//                }
-//                val user = snapshot?.toObject(User::class.java)
-//                if (user != null) {
-//                    user_email.text = user.username
-//                }
-//            }
-
+        db.collection(FirebaseConst.USER_COLLECTION)
+            .document(uid)
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.d("tagtagtag", e.localizedMessage)
+                    return@addSnapshotListener
+                }
+                val user = snapshot?.toObject(User::class.java)
+//               if (user_name != null && navigation_menu_user_img != null){
+//                   if (user != null ) {
+//                       user_name.text = user.username
+//                   }
+//                   if (user?.imgUri != null) Picasso.get().load(user.imgUri).noFade().into(navigation_menu_user_img)
+//               }
+            }
     }
-
 
 //    ADD parkings and parking spaces
     private fun addParkings(parkingName:String, quantity: Int, address: String){
@@ -214,7 +234,7 @@ class ParkingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                     parkingId, true, newParkingSpace.id, i,name,"section C"
                 )
                 db.collection(FirebaseConst.PARKING_SPACE_COLLECTION)
-                    .document(newParkingSpace.id)
+                    .document(newParkingSpace.id )
                     .set(parkingSpace)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Parking was added", Toast.LENGTH_LONG).show()

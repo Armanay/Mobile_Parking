@@ -22,7 +22,8 @@
 </LinearLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_phone_number">
 
         <com.google.android.material.textfield.TextInputEditText
             android:drawableStart="@drawable/ic_action_phone"
@@ -31,22 +32,8 @@
             android:drawablePadding="10dp"
             android:inputType="phone"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_phone_number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:drawableStart="@drawable/ic_action_policy"
-            android:id="@+id/ver_code"
-            android:layout_width="match_parent"
-            android:drawablePadding="10dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/code" />
+            app:keep_hint="true"/>
+<!--            app:mask="+7(###) ### ## ##"/>-->
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,13 +43,6 @@
         android:orientation="vertical"
         android:gravity="bottom"
         >
-    <Button
-        android:id="@+id/ver_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/verify"
-        android:background="@drawable/btn_bg"
-        android:layout_marginBottom="30dp"/>
         <Button
 
         android:id="@+id/get_sms_btn"

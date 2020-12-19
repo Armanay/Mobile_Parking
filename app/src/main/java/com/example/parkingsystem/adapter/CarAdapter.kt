@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parkingsystem.FirebaseConst
 import com.example.parkingsystem.R
 import com.example.parkingsystem.entity.Car
+import com.example.parkingsystem.entity.Parking
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.layout_car_item.view.*
 
 class CarAdapter(
-    private val carList: List<Car> = listOf()
+    private val carList: List<Car> = listOf(),
+    private val onClick:(Car) -> Unit,
+    private val identifier: Int
 ):RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
     private val db by lazy{ FirebaseFirestore.getInstance()}
     private val auth by lazy{ FirebaseAuth.getInstance()}
@@ -40,6 +43,10 @@ class CarAdapter(
         fun bindCar(car: Car){
             view.car_item_name.text = car.carName
             view.car_item_number.text = car.carNo
+
+            if (identifier == 1) view.delete_user_car.visibility = View.INVISIBLE
+            else view.delete_user_car.visibility = View.INVISIBLE
+
             view.delete_user_car.setOnClickListener {
                 db.collection(FirebaseConst.USER_COLLECTION)
                     .document(auth.currentUser!!.uid)
@@ -51,6 +58,10 @@ class CarAdapter(
                         Log.d("taaag", it.localizedMessage)
                     }
 
+            }
+
+            view.setOnClickListener {
+                onClick(car)
             }
         }
     }

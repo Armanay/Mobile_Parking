@@ -1,13 +1,18 @@
 package com.example.parkingsystem.activity
 
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.parkingsystem.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.FirebaseException
@@ -26,20 +31,32 @@ class Verification : AppCompatActivity() {
     }
 
     private val auth by lazy{ FirebaseAuth.getInstance()}
-
-
+    lateinit var bView: Dialog
+    lateinit var verifId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
         get_sms_btn.setOnClickListener {
             verificationCallback(phone_num_user.text.toString())
-            val dialogBottom = BottomSheetDialog(applicationContext)
-            val bottomSheetView = layoutInflater.inflate(
-                R.layout.verify_popup_window, null
-            )
-            dialogBottom.setContentView(bottomSheetView)
-            dialogBottom.show()
+            val alertDialog = Dialog(this)
+
+            alertDialog.setContentView(R.layout.verify_popup_window)
+            val verifyBtn =
+                alertDialog.findViewById<Button>(R.id.ver_btn)
+
+            val verCodeText  = alertDialog.findViewById<EditText>(R.id.ver_code)
+            alertDialog.show()
+            verifyBtn.setOnClickListener {
+                if (verCodeText.text!!.isNotEmpty()){
+                    val code = verCodeText.text.toString()
+                    val credential = PhoneAuthProvider.getCredential(verifId, code)
+                    signIn(credential)
+                    alertDialog.dismiss()
+                }
+            }
+            bView = alertDialog
+
         }
         toolbarSettings()
     }
@@ -66,8 +83,6 @@ class Verification : AppCompatActivity() {
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
-
-
                 if (e is FirebaseAuthInvalidCredentialsException) {
                     toast(e.localizedMessage)
                     Log.d("taaaag", "credentiallllllllll")
@@ -82,44 +97,13 @@ class Verification : AppCompatActivity() {
                 verification: String,
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
-//                val bottomSheetDialog =
-//                    BottomSheetDialog(this)
-//                val bottomSheetView = LayoutInflater.from(applicationContext)
-//                    .inflate(
-//                        R.layout.verify_popup_window,
-//                        findViewById(R.id.bottom_sheet_window)
-//                    )
-//                val verifyBtn =
-//                    bottomSheetView.findViewById<Button>(R.id.ver_btn)
-                ver_btn.setOnClickListener {
-
-                    if (ver_code.text!!.isNotEmpty()){
-                        val code = ver_code.text.toString()
-                        val credential = PhoneAuthProvider.getCredential(verification, code)
-                        signIn(credential)
-                    }
-                }
-//                bottomSheetDialog.setContentView(bottomSheetView)
-//                bottomSheetDialog.show()
-
-
-//                val bottomSheetView = layoutInflater.inflate(
-//                    R.layout.verify_popup_window, null
-//                )
-//                val bottomSheetDialog =
-//                    BottomSheetDialog(applicationContext)applicationContext
-//                bottomSheetView.ver_btn.setOnClickListener {
-//
-//               }
-
-
+                verifId = verification
             }
         })
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
     private fun signIn(credential: PhoneAuthCredential){
-            ver_code.setText(credential.smsCode.toString())
             auth.signInWithCredential(credential)
                 .addOnCompleteListener {
                     if (it.isSuccessful){
@@ -128,7 +112,7 @@ class Verification : AppCompatActivity() {
                    }
                     else{
                         Log.d("errrrrrrrorrr", it.toString())
-                    }
+                   }
         }
 
     }

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F2C94D</color>
     <color name="colordarkGrey">#757474</color>
-    <color name="colorBtnGreen">#66C48F</color>
     <color name="colorButtonBg">#0DD923</color>
     <color name="colorToolbar">#2B9BDA</color>
     <color name="colorWhite">#fff</color>
     <color name="colorBlack">#000</color>
     <color name="colorIconBg">#FFFFFF</color>
-    <color name="colorPolicy">#FFFFFF</color>
     <color name="colorRed">#FF0E0E</color>
 
 

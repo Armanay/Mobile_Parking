@@ -1,29 +1,28 @@
 package com.example.parkingsystem.activity
 
 import android.content.Intent
-import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
 import android.util.Log
-import android.widget.ImageView
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import br.com.sapereaude.maskedEditText.MaskedEditText
 import com.example.parkingsystem.FirebaseConst
 import com.example.parkingsystem.R
 import com.example.parkingsystem.entity.User
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FileDownloadTask
-import com.google.firebase.storage.FirebaseStorage
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
+
 
 class MainActivity : AppCompatActivity() {
 
     private val auth by lazy{ FirebaseAuth.getInstance()}
     private val db by lazy{ FirebaseFirestore.getInstance()}
-
+    lateinit var  mEditMaskedCustom: MaskedEditText
+    private var userEmail: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,6 +42,9 @@ class MainActivity : AppCompatActivity() {
                     login_psw.error = FirebaseConst.ERROR_MSG_IS_EMPTY
                 }
             } else {
+
+
+
                 db.collection(FirebaseConst.USER_COLLECTION)
                     .whereEqualTo("phone", login_email.text.toString())
                     .addSnapshotListener {snapshot, e->
@@ -56,7 +58,20 @@ class MainActivity : AppCompatActivity() {
 
                         for (u in users){
                             if (u.password == login_psw.text.toString()){
-                                successLogin()
+                                userEmail = "${login_email.text.toString()}@mail.ru"
+                                auth.signInWithEmailAndPassword(userEmail, login_psw.text.toString())
+                                    .addOnCompleteListener(this) { task ->
+                                        if (task.isSuccessful) {
+                                            successLogin()
+                                            Log.d("tagtagtag", "signInWithEmail:success")
+                                            successLogin()
+                                        } else {
+                                            // If sign in fails, display a message to the user.
+                                            Log.w("tagtagtag", "signInWithEmail:failure", task.exception)
+                                            Toast.makeText(baseContext, "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
                             }
                             else{
                                 Toast.makeText(this,"Password is not correct!",Toast.LENGTH_LONG).show()

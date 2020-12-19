@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/border_set"/>
     <LinearLayout
-        android:id="@+id/add_card"
+        android:id="@+id/add_user_card"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,6 +47,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_set"/>
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:layout_marginStart="@dimen/_20sdp"
+       android:layout_marginTop="@dimen/_20sdp"
+       android:layout_marginEnd="@dimen/_20sdp">
+       <TextView
+           android:id="@+id/my_cards_label"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/bank_card"
+           android:visibility="invisible"/>
+       <TextView
+           android:id="@+id/empty_card_list"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/empty_label"/>
+
+       <androidx.recyclerview.widget.RecyclerView
+
+           android:id="@+id/user_card_list"
+           android:layout_marginTop="@dimen/_20sdp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"/>
+
+   </FrameLayout>
+
+
 
 
 </LinearLayout>

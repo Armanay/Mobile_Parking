@@ -4,32 +4,13 @@
     <string name="enter_username">Введите имя пользователя</string>
     <string name="enter_password">Введите пароль</string>
     <string name="link_sign_up">Нет аккаунта? Регистрация</string>
-    <string name="sign_up_label">Регистрация</string>
-    <string name="enter_name">Введите имя пользователя</string>
     <string name="repeat_password">Повторите пароль</string>
-    <string name="title">Title</string>
-    <string name="edit_btn">Edit</string>
 
     <string name="save_btn">Сохранить</string>
-    <string name="logout_action_bar">Выход</string>
-    <string name="sign_in_title">Логин</string>
-    <string name="empty_field_error">Заполните поле</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Настройки</string>
 
-    <string name="menu_home">Главная</string>
-
-    <string name="home_second">Home Second</string>
     <string name="car_nomer">Введите номер машины</string>
     <string name="car_name">Введите имя машины(пр: моя машина)</string>
-    <string name="title_activity_park">ParkActivity</string>
-    <string name="enter_email">Электронная почта</string>
     <string name="enter_phone_number">Введите номер телефона</string>
-    <string name="title_activity_parking">ParkingActivity</string>
     <string name="open">открыть</string>
     <string name="close">закрыть</string>
 
@@ -37,7 +18,6 @@
     <string name="choose_parking">Выберите парковку:</string>
     <string name="choose_parking_space">Выберите парковчное место:</string>
     <string name="choose_car">Выберите машину:</string>
-    <string name="your_cars">Ваши машины</string>
     <string name="policy_card">Ваша карта будет безопасности и никто кроме вас не будет иметь доступ к вашей карте</string>
     <string name="policy_park">Информация о ваших парковках и о забронированных местах будет скрыта от других лиц</string>
     <string name="policy_car">Информация о ваших машинах будет доступна только вам</string>
@@ -62,7 +42,6 @@
     <string name="label_update_pswd">Изменить пароль</string>
     <string name="my_car_label">Мои машины</string>
     <string name="may_card_label">Мои банковские карты</string>
-    <string name="exit_btn">Выход</string>
     <string name="old_pswd_label">Текущий пароль</string>
     <string name="new_pswd_label">Новый пароль</string>
     <string name="cofirm_new_pswd">Подвердите новый пароль</string>
@@ -75,4 +54,25 @@
     <string name="contact_with_us">Свяжитесь с нами</string>
     <string name="privacy_policy_label">Политика конфиденциальности</string>
     <string name="Sign_out">Выход</string>
+    <string name="todo">TODO</string>
+    <string name="username">Username</string>
+
+    <string name="payment_card_number_hint">Номер карты</string>
+    <string name="card_owner_name_hint">Имя держателя карты</string>
+    <string name="expiration_date_hint">Срок действия</string>
+    <string name="cvc2_cvv2">CVC2</string>
+    <string name="save_card_label">Сохранить</string>
+    <string name="empty_label">Пусто</string>
+    <string name="_7_777_777_77_77">+7 777 777 77 77</string>
+    <string name="example_mail_ru">example@mail.ru</string>
+    <string name="bank_card">Банковские карты</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adk">ADK</string>
+    <string name="satpaeva">Satpaeva</string>
+    <string name="choose_parking_btn">Выберите парковку</string>
+    <string name="choose_place">Выберите место</string>
+    <string name="choose_car_btn">Выберите машину</string>
+    <string name="app_title">App title</string>
+    <string name="ok">ok</string>
 </resources>

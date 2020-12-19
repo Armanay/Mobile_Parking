@@ -27,24 +27,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/spinner_bg"
                 android:orientation="horizontal">
 
-            <Spinner
-                android:padding="5dp"
-                android:id="@+id/spinner_parking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:backgroundTint="@color/colorBlack"
-                tools:layout_editor_absoluteY="247dp"
-                android:spinnerMode="dropdown" />
-                <ImageView
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/choose_parking"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_action_list"/>
+                    android:text="@string/choose_parking_btn"
+                    android:background="@drawable/spinner_bg"/>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -69,21 +60,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/spinner_bg"
                 android:orientation="horizontal">
-                <Spinner
-                    android:padding="5dp"
-                    android:id="@+id/spinner_parking_space"
+                <Button
+                    android:id="@+id/choose_place"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="247dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_action_list"/>
+                    android:text="@string/choose_place"
+                    android:background="@drawable/spinner_bg"/>
+
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -101,22 +85,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/spinner_bg"
                 android:orientation="horizontal">
-                <Spinner
-                    android:padding="5dp"
-                    android:id="@+id/spinner_car"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="247dp"
-                    />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_action_list"/>
+                <Button
+                android:id="@+id/choose_car"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_car_btn"
+                android:background="@drawable/spinner_bg"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

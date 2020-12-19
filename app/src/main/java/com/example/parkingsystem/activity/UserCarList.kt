@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.parkingsystem.FirebaseConst
@@ -12,6 +13,7 @@ import com.example.parkingsystem.adapter.CarAdapter
 import com.example.parkingsystem.entity.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user_car_list.*
 import kotlinx.android.synthetic.main.layout_car_item.*
 
@@ -51,7 +53,14 @@ class UserCarList : AppCompatActivity() {
                 if(user != null){
                     profile_phone.text = user.phone
                     profile_email.text = user.username
-                    own_car_list.adapter = CarAdapter(user.carList)
+                    user_car_list_empty_label.isVisible = user.carList.isEmpty()
+                    own_car_list.adapter = CarAdapter(user.carList, onClick = {
+                    }, identifier = 0)
+                    Picasso
+                        .get()
+                        .load(user.imgUri)
+                        .noFade()
+                        .into(user_car_list_img)
                 }
             }
 

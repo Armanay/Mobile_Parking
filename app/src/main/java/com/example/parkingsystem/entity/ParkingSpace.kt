@@ -1,5 +1,6 @@
 package com.example.parkingsystem.entity
 
+
 data class ParkingSpace(
      val parkingId: String,
      val free: Boolean,
